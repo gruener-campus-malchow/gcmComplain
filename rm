@@ -1,5 +1,0 @@
-person(*mail*)
-beschwerde(*id*,titel,zeit,reaktionszeit,person.mail)
-nachricht(*id*,zeit,text,person.mail,beschwerde.id)
-datei(*id*,datum,url/bin,typ,name,nachricht.id)
-betrifft(person.mail,beschwerde.id)
