@@ -18,5 +18,26 @@ CREATE TABLE datei (
   FOREIGN KEY (nachricht_id) REFERENCES nachricht(id)
 );
    
+CREATE TABLE person (
+    person_email VARCHAR (100) NOT NULL,
+    PRIMARY KEY (person_email)
+);
 
+
+
+CREATE TABLE person_beschwerde (
+    person_email VARCHAR(100) NOT NULL,
+    beschwerde_id INT NOT NULL,
+
+    PRIMARY KEY (person_email, beschwerde_id),
+
+    FOREIGN KEY (person_email)
+        REFERENCES Person(email)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE,
+
+    FOREIGN KEY (beschwerde_id)
+        REFERENCES Beschwerde(beschwerde_id)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
 
