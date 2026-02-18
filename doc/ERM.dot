@@ -1,0 +1,88 @@
+graph G {
+
+  //layout=circo;
+  //overlap = false;
+
+  bgcolor = "lightgrey";
+
+ subgraph cluster_0 {
+    style=filled;
+    color=lightgrey;
+    node [style=filled,color=pink];
+    fach [label="fachbereich", shape=rectangle];
+    kurs [label="kurs", shape=rectangle];
+
+
+  gehört_an -- fach[label="n"];
+
+  ist_leitung_von -- fach [label="n"];
+ fach -- bezeichnung
+  fach -- fach_id;
+
+    label = "*nice to have*";
+    fontsize = 20;
+  }
+
+    person -- gehört_an [label="m"];
+    person -- ist_leitung_von [label="m"];
+
+  //entitäten
+  beschwerde [shape=rectangle];
+  nachricht [shape=rectangle];
+  datei [shape=rectangle];
+  person [shape=rectangle];
+
+
+
+  //attribute
+  beschwerde -- titel;
+  beschwerde -- zeit;
+  beschwerde -- reaktionszeit;
+  beschwerde -- beschwerde_id;
+
+  //primärschlüssel
+  mail [label="*mail*"];
+  beschwerde_id [label="*id*"];
+  nachricht_id [label="*id*"];
+  datei_id [label="*id*"];
+  nachricht_zeit [label="zeit"];
+
+  nachricht -- text;
+  nachricht -- nachricht_id;
+  nachricht -- nachricht_zeit;
+
+
+
+  datei -- datum;
+  datei -- "url/bin";
+  datei -- typ;
+  datei -- name;
+  datei -- datei_id;
+
+  person -- mail;
+
+
+
+  //relationships
+  verfasst [shape=diamond];
+  betrifft [shape=diamond];
+  ist_absender [shape=diamond];
+  ist_anhang_von [shape=diamond];
+  gehört_zu [shape=diamond];
+  ist_leitung_von [shape=diamond];
+  gehört_an [shape=diamond];
+
+  //connections
+
+  person -- verfasst [label="1"];
+  verfasst -- beschwerde[label="n"];
+  person -- betrifft [label="n"];
+  betrifft -- beschwerde[label="m"];
+  person -- ist_absender[label="1"];
+  ist_absender -- nachricht [label="n"];
+  beschwerde -- gehört_zu [label="1"];
+  gehört_zu -- nachricht [label="n"];
+  datei -- ist_anhang_von [label="n"];
+  ist_anhang_von -- nachricht[label="1"];
+
+}
