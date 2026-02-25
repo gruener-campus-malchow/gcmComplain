@@ -16,14 +16,19 @@ echo '<!DOCTYPE html><html lang="de">
 
 
 
-try{
-    $sqlcode=file_get_contents('datenbank.sql');
-}
-catch(Exception $e)
-{
-    echo 'Hier ist ein Fehler aufgetreten: '.$e;
-}
+
 
 echo '<textarea rows="20" cols="100">'.$sqlcode.'</textarea>';
 
+try {
+    $sql_init_database = file_get_contents("datenbank.sql");
+    $databaseobject->query($sql_init_database);
+} catch (Exception $e) {
+    echo 'Failed to initiate database: ' . $e->getMessage();
+}
+
 echo"</body></html>";
+
+
+
+
