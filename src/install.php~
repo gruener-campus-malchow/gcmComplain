@@ -6,6 +6,35 @@ require_once("Database.php");
 
 $databaseobject = new Database(DB_HOST, DB_USER, DB_PASSWORD,DB_NAME);
 
+<<<<<<< HEAD
+
+
+// Verarbeitung der Eingabe
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $name = htmlspecialchars($_POST['user_name']);
+    echo "Hallo, " . $name;
+}
+else {
+// Textfeld für Datenbankname
+echo '<form method="post" action="">';
+echo '<label for="DBname">Datenbankname:</label>';
+echo '<input type="text" id="DBname" DBname="DB_name" maxlength="50" placeholder="Musterdatenbank">';
+
+// Textfeld für Benutzername
+echo '<label for="name">Benutzername:</label>';
+echo '<input type="text" id="name" name="user_name" maxlength="50" placeholder="Max Mustermann">';
+
+// Textfeld für Passwort
+echo '<label for="pw">Passwort:</label>';
+echo '<input type="text" id="pw" pw="Password" placeholder="1234">';
+
+// Textfeld für Host
+echo '<label for="server Host">Host:</label>';
+echo '<input type="text" id="server Host" server Host="Host_name" placeholder="localhost">';
+echo '<input type="submit" value="Senden">';
+echo '</form>';
+}
+=======
 echo '<!DOCTYPE html><html lang="de">
     <head>
         <link rel="stylesheet" href="https://gcm.schule/index.css">
@@ -32,3 +61,4 @@ echo"</body></html>";
 
 
 
+>>>>>>> 4745c3b2bf244a5863997c75618f16b406f02fd7

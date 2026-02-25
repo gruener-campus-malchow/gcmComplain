@@ -6,10 +6,10 @@ define('ENV', 'DEV');
 
 # if you need to connect to a database, uncomment the following lines and
 # add your database config
-define('DB_NAME', 'foo');
-define('DB_USER', 'foouser');
-define('DB_PASSWORD', 'password or passphrase or stupid things');
-define('DB_HOST', 'have to be a valid adress like localhost');
+define('DB_NAME', 'phinix_DB1');
+define('DB_USER', 'phinix ');
+define('DB_PASSWORD', '1234');
+define('DB_HOST', 'localhost');
 
 # if you want e-mail, uncomment these lines and add your e-mail config
 #define('MAIL_ADDRESS', 'root@localhost');
