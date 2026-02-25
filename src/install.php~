@@ -33,4 +33,3 @@ echo '<input type="text" id="server Host" server Host="Host_name" placeholder="l
 echo '<input type="submit" value="Senden">';
 echo '</form>';
 }
-
