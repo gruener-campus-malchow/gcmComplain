@@ -34,6 +34,7 @@ echo '<input type="text" id="server Host" server Host="Host_name" placeholder="l
 echo '<input type="submit" value="Senden">';
 echo '</form>';
 }
+
 =======
 echo '<!DOCTYPE html><html lang="de">
     <head>
@@ -55,6 +56,15 @@ try {
 }
 
 echo '<textarea rows="20" cols="100">'.$sql_init_database.'</textarea>';
+
+try {
+    $EULA = file_get_contents("EULA.txt");
+    echo '<textarea rows="20" cols="100">'.$EULA.'</textarea>';
+} catch (Exception $e) {
+    echo "Couldn't load EULA" . $e->getMessage();
+}
+
+
 
 echo"</body></html>";
 

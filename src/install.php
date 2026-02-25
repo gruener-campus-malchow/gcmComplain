@@ -6,9 +6,6 @@ require_once("Database.php");
 
 $databaseobject = new Database(DB_HOST, DB_USER, DB_PASSWORD,DB_NAME);
 
-<<<<<<< HEAD
-
-
 // Verarbeitung der Eingabe
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = htmlspecialchars($_POST['user_name']);
@@ -35,7 +32,7 @@ echo '<input type="submit" value="Senden">';
 echo '</form>';
 }
 
-=======
+
 echo '<!DOCTYPE html><html lang="de">
     <head>
         <link rel="stylesheet" href="https://gcm.schule/index.css">
@@ -68,7 +65,3 @@ try {
 
 echo"</body></html>";
 
-
-
-
->>>>>>> 4745c3b2bf244a5863997c75618f16b406f02fd7
