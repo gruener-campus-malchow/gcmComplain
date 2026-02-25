@@ -6,6 +6,7 @@ require_once("Database.php");
 
 $databaseobject = new Database(DB_HOST, DB_USER, DB_PASSWORD,DB_NAME);
 
+<<<<<<< HEAD
 
 
 // Verarbeitung der Eingabe
@@ -34,3 +35,40 @@ echo '<input type="submit" value="Senden">';
 echo '</form>';
 }
 
+=======
+echo '<!DOCTYPE html><html lang="de">
+    <head>
+        <link rel="stylesheet" href="https://gcm.schule/index.css">
+        <title>Install</title>
+    </head>
+<body>
+    <h1 class="cis-header">Installation</h1>';
+
+
+
+
+
+try {
+    $sql_init_database = file_get_contents("datenbank.sql");
+    $databaseobject->query($sql_init_database);
+} catch (Exception $e) {
+    echo 'Failed to initiate database: ' . $e->getMessage();
+}
+
+echo '<textarea rows="20" cols="100">'.$sql_init_database.'</textarea>';
+
+try {
+    $EULA = file_get_contents("EULA.txt");
+    echo '<textarea rows="20" cols="100">'.$EULA.'</textarea>';
+} catch (Exception $e) {
+    echo "Couldn't load EULA" . $e->getMessage();
+}
+
+
+
+echo"</body></html>";
+
+
+
+
+>>>>>>> 4745c3b2bf244a5863997c75618f16b406f02fd7
