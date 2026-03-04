@@ -1,11 +1,19 @@
 <?php
 
+require_once("../../config.php");
+
 class Database
 {
     private $connection;
 
-    public function __construct($host, $username, $password, $database)
+    //public function __construct($host=DB_HOST, $username=DB_USER, $password=DB_PASSWORD, $database=DB_NAME)
+    public function __construct()
     {
+        $host=DB_HOST;
+        $username=DB_USER;
+        $password=DB_PASSWORD;
+        $database=DB_NAME;
+
         try
         {
             $this->connection = new PDO("mysql:host=$host;dbname=$database", $username, $password);
