@@ -46,3 +46,15 @@ CREATE TABLE datei (
 );
 
 COMMIT;
+
+
+
+START TRANSACTION;
+
+INSERT INTO `person` (`person_email`) VALUES ('test@test.com')
+INSERT INTO `person` (`person_email`) VALUES ('test@test.com')
+INSERT INTO `person` (`person_email`) VALUES ('test@test.com')
+INSERT INTO `person` (`person_email`) VALUES ('test@test.com')
+
+COMMIT;
+
