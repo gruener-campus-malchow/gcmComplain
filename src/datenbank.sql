@@ -50,7 +50,6 @@ CREATE TABLE IF NOT EXISTS admins(
     salt VARCHAR(100) NOT NULL,
     password_hash VARCHAR(100) NOT NULL,
     PRIMARY KEY (username)
-
-)
+);
 
 COMMIT;
