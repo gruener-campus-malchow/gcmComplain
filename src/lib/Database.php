@@ -1,6 +1,10 @@
 <?php
 
+<<<<<<< HEAD
+require_once("src/config.php");
+=======
 //require_once("../../config.php");
+>>>>>>> ecb1b56333f9a333ece842ef4e32c9709dffbd59
 
 class Database
 {
