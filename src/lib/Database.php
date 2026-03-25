@@ -1,22 +1,31 @@
 <?php
 
+<<<<<<< HEAD
 require_once("src/config.php");
+=======
+//require_once("../../config.php");
+>>>>>>> ecb1b56333f9a333ece842ef4e32c9709dffbd59
 
 class Database
 {
     private $connection;
+    private $host;
+    private $username;
+    private $password;
+    private $database;
 
-    //public function __construct($host=DB_HOST, $username=DB_USER, $password=DB_PASSWORD, $database=DB_NAME)
-    public function __construct()
+    public function __construct($config_path)
     {
-        $host=DB_HOST;
-        $username=DB_USER;
-        $password=DB_PASSWORD;
-        $database=DB_NAME;
+        require_once($config_path);
+
+        $this->host=DB_HOST;
+        $this->username=DB_USER;
+        $this->password=DB_PASSWORD;
+        $this->database=DB_NAME;
 
         try
         {
-            $this->connection = new PDO("mysql:host=$host;dbname=$database", $username, $password);
+            $this->connection = new PDO("mysql:host=$this->host;dbname=$this->database", $this->username, $this->password);
         }
         catch (PDOException $e)
         {
