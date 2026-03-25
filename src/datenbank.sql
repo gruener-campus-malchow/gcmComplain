@@ -5,7 +5,7 @@ CREATE TABLE IF NOT EXISTS person (
     PRIMARY KEY (person_email)
 );
 
-CREATE TABLE beschwerde(
+CREATE TABLE IF NOT EXISTS beschwerde(
     id INTEGER AUTO_INCREMENT PRIMARY KEY,
     titel VARCHAR(100) NOT NULL,
     zeit TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -17,7 +17,7 @@ CREATE TABLE beschwerde(
         ON UPDATE CASCADE
 );
 
-CREATE TABLE person_beschwerde (
+CREATE TABLE IF NOT EXISTS person_beschwerde (
     person_email VARCHAR(100) NOT NULL,
     beschwerde_id INT NOT NULL,
     PRIMARY KEY (person_email, beschwerde_id),
@@ -25,7 +25,7 @@ CREATE TABLE person_beschwerde (
     FOREIGN KEY (beschwerde_id) REFERENCES beschwerde(id)
     );
 
-CREATE TABLE nachricht (
+CREATE TABLE IF NOT EXISTS nachricht (
         id INTEGER AUTO_INCREMENT PRIMARY KEY,
         zeit TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
         txt VARCHAR(200) NOT NULL,
@@ -34,7 +34,7 @@ CREATE TABLE nachricht (
         FOREIGN KEY (id) REFERENCES beschwerde(id)
 );
 
-CREATE TABLE datei (
+CREATE TABLE IF NOT EXISTS datei (
   id INTEGER AUTO_INCREMENT PRIMARY KEY,
   datum datetime NOT NULL,
   url varchar(100) NOT NULL,
@@ -45,16 +45,12 @@ CREATE TABLE datei (
   FOREIGN KEY (nachricht_id) REFERENCES nachricht(id)
 );
 
-COMMIT;
+CREATE TABLE IF NOT EXISTS admins(
+    username VARCHAR(100) NOT NULL,
+    salt VARCHAR(100) NOT NULL,
+    password_hash VARCHAR(100) NOT NULL,
+    PRIMARY KEY (username)
 
-
-
-START TRANSACTION;
-
-INSERT INTO `person` (`person_email`) VALUES ('test@test.com')
-INSERT INTO `person` (`person_email`) VALUES ('test@test.com')
-INSERT INTO `person` (`person_email`) VALUES ('test@test.com')
-INSERT INTO `person` (`person_email`) VALUES ('test@test.com')
+)
 
 COMMIT;
-
