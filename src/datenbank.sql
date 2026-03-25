@@ -47,7 +47,7 @@ CREATE TABLE IF NOT EXISTS datei (
 
 CREATE TABLE IF NOT EXISTS admins(
     username VARCHAR(100) NOT NULL,
-    salt VARCHAR(100) NOT NULL,
+    mail VARCHAR(100) NOT NULL,
     password_hash VARCHAR(100) NOT NULL,
     PRIMARY KEY (username)
 );
